@@ -34,7 +34,7 @@ def gen_substring_value(row, placeholder_mapping, curr_value_mapping, curr_state
     for substatement in curr_statement_mapping:
         if substatement == STMT_PLHLDS:
             for placeholder in curr_statement_mapping[STMT_PLHLDS]:
-                curr_value_mapping[placeholder] = row[ord(placeholder_mapping[placeholder]) - 65].value
+                curr_value_mapping[placeholder] = row[placeholder_mapping[placeholder]].value
         else:
             gen_substring_value(
                 row,
@@ -76,6 +76,9 @@ def main():
 
     # config should never be saved afterwards!
     config[SUBSTATEMENTS][STATEMENT_NAME] = config[STATEMENT_NAME]
+    for column in config[PLHLD_COLUMN_MAPPING]:
+        config[PLHLD_COLUMN_MAPPING][column] = ord(config[PLHLD_COLUMN_MAPPING][column]) - 65
+
     gen_statement_mapping(config, STATEMENT_NAME, statement_mapping)
 
     wb = load_workbook(filename=args.excel_file, read_only=True)
