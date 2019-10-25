@@ -78,8 +78,6 @@ def main():
     config[SUBSTATEMENTS][STATEMENT_NAME] = config[STATEMENT_NAME]
     gen_statement_mapping(config, STATEMENT_NAME, statement_mapping)
 
-    print(statement_mapping)
-
     wb = load_workbook(filename=args.excel_file, read_only=True)
 
     sheet = wb[config[SHEET_NAME]]
