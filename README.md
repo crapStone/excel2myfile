@@ -12,6 +12,8 @@ usage: excel2myfile.py yaml_config excel_file out_file
 
 ## Yaml config
 
+> use double `{{` or `}}` if you want a literal `{` or `}`.
+
 ```yaml
 sheet_name: Sheet1  # workbook sheet
 statement: "my statement with \n{sub1}"  # first statement wich is only inserted once, set to {} to use outest statement in every line
