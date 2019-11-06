@@ -5,7 +5,7 @@ import sys
 import yaml
 from openpyxl import load_workbook
 
-STRING_TEMPLATE_REGEX = re.compile(r"{(.*?)}")
+STRING_TEMPLATE_REGEX = re.compile(r"{([^{}]*?)}")
 
 STATEMENT_NAME = "statement"
 SUBSTATEMENTS = "substatements"
